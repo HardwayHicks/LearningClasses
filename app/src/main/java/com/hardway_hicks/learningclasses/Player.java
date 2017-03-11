@@ -36,7 +36,7 @@ public class Player {
         setLives(3);
         setLevel(startingLevel);
         setScore(0);
-//        setDefaultWeapon();
+        setDefaultWeapon();
         inventory = new ArrayList<>();
     }
 
@@ -115,4 +115,22 @@ public class Player {
         return false;
     }
 
+    public void showInventory() {
+        for (Loot item : inventory) {
+            System.out.println(item.getName());
+        }
+        System.out.println("***********************");
+
+    }
+
+    public int score() {
+        int total = 0;
+//        for(int i=0; i<inventory.size(); i++){
+//            Loot currentLoot = inventory.get(i);
+
+        for (Loot currentLoot : inventory) {
+            total = total + currentLoot.getValue();
+        }
+        return total;
+    }
 }

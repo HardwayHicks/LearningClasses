@@ -7,15 +7,20 @@ package com.hardway_hicks.learningclasses;
 public class Demo {
 
     public static void main(String[] args) {
-        Player tim = new Player();
-        tim.setNameAndLevel("Blarg", 7);
-        System.out.println(tim.getHandleName());
-        System.out.println("Level: " + tim.getLevel());
-        System.out.println("Lives: " + tim.getLives());
-        System.out.println(tim.getWeapon().getName());
-
-        Weapon newAxe = new Weapon("Derp Breaker", 20,20);
-        tim.setWeapon(newAxe);
-        System.out.println(tim.getWeapon().getName());
+        for (int i = 0; i < 10; i++) {
+            VampireLord bob = new VampireLord("bob");
+            bob.showInfo();
+            while (bob.getLives() > 0) {
+                if (bob.dodges()) {
+                    continue;
+                }
+                if (bob.runAway()) {
+                    System.out.println("Bob ran away");
+                    break;
+                } else {
+                    bob.takeDamage(10);
+                }
+            }
+        }
     }
 }
