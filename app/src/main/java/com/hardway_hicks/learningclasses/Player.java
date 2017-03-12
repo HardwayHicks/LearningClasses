@@ -107,6 +107,16 @@ public class Player {
         inventory.add(newLoot);
     }
 
+    public boolean dropLoot(String lootName){
+        for(Loot item : inventory){
+            if (item.getName().equals(lootName)){
+                inventory.remove(item);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean dropLoot(Loot loot){
         if(this.inventory.contains(loot)) {
             inventory.remove(loot);
